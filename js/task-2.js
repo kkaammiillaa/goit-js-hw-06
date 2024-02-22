@@ -10,11 +10,11 @@ class Storage {
     this.#items.push(newItem);
   }
   removeItem(itemToRemove) {
-    this.#items.forEach((item, index) => {
-      if (item === itemToRemove) {
-        this.#items.splice(index, 1);
-      }
-    });
+    this.#items.splice(
+      0,
+      this.#items.length,
+      ...this.#items.filter(element => element !== itemToRemove)
+    );
   }
 }
 
